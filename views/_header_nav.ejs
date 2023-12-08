@@ -1,0 +1,96 @@
+<!-- sidebar @s -->
+<div class="nk-sidebar nk-sidebar-fixed is-light " data-content="sidebarMenu">
+    <div class="nk-sidebar-element nk-sidebar-head">
+        <div class="nk-sidebar-brand">
+            <a href="/" class="logo-link nk-sidebar-logo">
+                <img id='img_cms_logo' class="logo-light logo-img" src="" alt="">
+            </a>
+        </div>
+        <div class="nk-menu-trigger mr-n2">
+            <a href="#" class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em class="icon ni ni-arrow-left"></em></a>
+            <a href="#" class="nk-nav-compact nk-quick-nav-icon d-none d-xl-inline-flex" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+        </div>
+    </div>
+    <!-- .nk-sidebar-element -->
+    <div class="nk-sidebar-element">
+        <div class="nk-sidebar-content">
+            <div class="nk-sidebar-menu" data-simplebar>
+                <%- include ('_header_nav_user') %>
+            </div><!-- .nk-sidebar-menu -->
+        </div><!-- .nk-sidebar-content -->
+    </div><!-- .nk-sidebar-element -->
+</div>
+<!-- sidebar @e -->
+<!-- wrap @s -->
+<div class="nk-wrap ">
+    <!-- main header @s -->
+    <div class="nk-header nk-header-fixed is-light">
+        <div class="container-fluid">
+            <div class="nk-header-wrap">
+                <div class="nk-menu-trigger d-xl-none ml-n1">
+                    <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+                </div>
+                <div class="nk-header-brand d-xl-none">
+                </div><!-- .nk-header-brand -->
+                <div class="nk-header-search ml-3 ml-xl-0">
+                        </div><!-- .nk-header-news -->
+                        <div class="nk-header-tools">
+                            <ul class="nk-quick-nav">
+                                <li class="dropdown user-dropdown">
+                                    <a href="#" class="dropdown-toggle mr-n1" data-toggle="dropdown">
+                                        <div class="user-toggle">
+                                            <div class="user-avatar sm">
+                                                <img src='<%=helper.user.photo_obj.thumb_url%>'>
+                                            </div>
+                                            <div class="user-info d-none d-xl-block">
+                                                <div class="user-status user-status-unverified" id='sp_item_cms_title'></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+                                        <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
+                                            <div class="user-card">
+                                                <div class="user-info">
+                                                    <span class="sub-text"><%=helper.user.email%></span>
+                                                    <span class="text"><%=helper.app_title_id%></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown-inner">
+                                            <ul class="link-list">
+                                                <li>
+                                                    <a href="/user/edit_profile">
+                                                        <em class="icon ni ni-user-alt"></em><span>Profile</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/store/info">
+                                                        <em class="icon ni ni-sun"></em><span>Business</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/store/paper">
+                                                        <em class="icon ni ni-files"></em><span>Invoice</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/store/cms">
+                                                        <em class="icon ni ni-server"></em><span>CMS</span>
+                                                    </a>
+                                                </li>
+                                                <!--<li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>!-->
+                                            </ul>
+                                        </div>
+                                        <div class="dropdown-inner">
+                                            <ul class="link-list">
+                                                <li><a href="/logout"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+            </div><!-- .nk-header-wrap -->
+        </div><!-- .container-fliud -->
+    </div>
+

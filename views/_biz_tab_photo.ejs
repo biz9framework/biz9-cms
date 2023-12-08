@@ -1,0 +1,22 @@
+<div class="row gy-4 tabs">
+    <div class="col-md-6">
+        <div class="form-group">
+            <form  action='/cloud/file/update_photo' id='form_photo_upload'  method='POST' encType="multipart/form-data" >
+                <label class="form-label" for="full-name">Upload</label>
+                <input type="file" class="" id="file_upload_photo_form" name="file_upload_photo_form"><br/><br/>
+                <button type="submit" id='btn_item_photo_upload' class="btn btn-lg btn-primary">Upload</button>
+                <div style='float:left'>
+                    <span class='sp_photo'><img height='150px'width='150px' class='img_up_primary' src='/images/no_image.png'/></span>
+                </div>
+                <div style='float:right' id='div_photo_size'>
+                </div>
+                <br/>
+                <br/>
+                <!--<a  href="javascript:void(0);"  id='btn_item_photo_remove' class='link_item_delete' onclick="return confirm('Are you sure?')"><em class="icon ni ni-trash"></em></a>--!>
+            </form>
+        </div>
+    </div>
+    <div  id='ul_save_btns' class="col-12">
+    </div>
+</div>
+

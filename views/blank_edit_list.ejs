@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+    <head>
+        <%- include ('_header') %>
+    </head>
+    <body class="nk-body bg-lighter npc-default pg-auth dark-mode">
+        <div class="nk-app-root">
+            <!-- main @s -->
+            <div class="nk-main ">
+                <%- include ('_header_nav') %>
+                <!-- content @s -->
+                <div class="nk-content">
+                    <div class="container-fluid">
+                        <div class="nk-content-inner">
+                            <div class="nk-content-body">
+                                <div class="nk-block-head nk-block-head-sm">
+                                    <div class="nk-block-between">
+                                        <div class="nk-block-head-content">
+                                            <h3 class="nk-block-title page-title"><%=helper.list_title%></h3>
+                                            <div class="nk-block-des text-soft">
+                                                <p>You have <%=helper.item_list.length%> items.</p>
+                                            </div>
+                                        </div><!-- .nk-block-head-content -->
+                                        <div class="nk-block-head-content">
+                                            <%if(helper.show_add){ %>
+                                            <button type="button" id='btn_item_add' class="btn btn-lg btn-primary"><em class="icon ni ni-plus"></em></button>
+                                            </a>
+                                            <%} %>
+                                        </div><!-- .nk-block-head-content -->
+                                    </div><!-- .nk-block-between -->
+                                </div><!-- .nk-block-head -->
+                                <!-- .nk-block -->
+                                <div class="nk-block nk-block-lg">
+                                    blank content
+                                </div>
+                                <!-- .nk-block -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content @e -->
+                <!-- footer @s -->
+                <div class="nk-footer">
+                    <%- include ('_footer') %>
+                </div>
+                <!-- footer @e -->
+            </div>
+            <!-- wrap @e -->
+        </div>
+        <!-- main @e -->
+        <!-- app-root @e -->
+
+        <!-- modal_start -->
+        <!-- modal_end -->
+
+    </body>
+    <%- include ('_footer_file') %>
+    <script src="/js/item_map_edit_list.js"></script>
+    <script>
+        $(document).ready(function() {
+                });
+    </script>
+</html>

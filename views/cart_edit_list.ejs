@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+    <head>
+        <%- include ('_header') %>
+    </head>
+    <body class="nk-body bg-lighter npc-default pg-auth dark-mode">
+        <div class="nk-app-root">
+            <!-- main @s -->
+            <div class="nk-main ">
+                <%- include ('_header_nav') %>
+                <!-- content @s -->
+                <div class="nk-content">
+                    <div class="container-fluid">
+                        <div class="nk-content-inner">
+                            <div class="nk-content-body">
+                                <div class="nk-block-head nk-block-head-sm">
+                                    <div class="nk-block-between">
+                                        <div class="nk-block-head-content">
+                                            <h3 class="nk-block-title page-title"><%=helper.list_title%></h3>
+                                            <div class="nk-block-des text-soft">
+                                                <p>You have <%=helper.item_list.length%> items.</p>
+                                            </div>
+                                        </div><!-- .nk-block-head-content -->
+                                        <div class="nk-block-head-content">
+                                            <ul class="nk-block-tools g-3">
+                                                <li class="nk-block-tools-opt">
+                                                    <%if(helper.show_add){ %>
+                                                    <button type="button" id='btn_item_add' class="btn btn-lg btn-primary"><em class="icon ni ni-plus"></em></button>
+                                                    <%} %>
+                                                </li>
+                                            </ul>
+                                        </div><!-- .nk-block-head-content -->
+                                    </div><!-- .nk-block-between -->
+                                </div><!-- .nk-block-head -->
+                                <!-- .nk-block -->
+                                <div class="nk-block nk-block-lg">
+                                    <table  id='tbl_list' class="datatable-init nowrap nk-tb-list is-separate" data-auto-responsive="false">
+                                        <thead>
+                                            <tr class="nk-tb-item nk-tb-head">
+                                                    <th class="nk-tb-col"><span>Customer </span></th>
+                                                    <th class="nk-tb-col"><span>Quantity</span></th>
+                                                    <th class="nk-tb-col"><span>Price</span></th>
+                                                    <th class="nk-tb-col"><span>Old Price</span></th>
+                                                    <th class="nk-tb-col nk-tb-col-tools">
+                                                    <ul class="nk-tb-actions gx-1 my-n1">
+                                                    <li class="mr-n1">
+                                                    <div class="dropdown">
+                                                    <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                    <ul class="link-list-opt no-bdr">
+                                                        </ul>
+                                                        </div>
+                                                        </div>
+                                                        </li>
+                                                        </ul>
+                                                        </th>
+                                                        </tr>
+                                                        <!-- .nk-tb-item -->
+                                        </thead>
+                                        <tbody>
+                                            <%for(a=0;a<helper.item_list.length;a++){ %>
+                                            <tr class="nk-tb-item">
+                                                    <td class="nk-tb-col">
+                                                    <span class="tb-product link_item_edit"  customer_id='<%=helper.item_list[a].customer_id%>' style='text-align:center'>
+                                                        <a   href="/order/cart/detail/<%=helper.item_list[a].customer_id%>" customer_id='<%=helper.item_list[a].customer_id%>'  class='link_item_edit'>
+                                                    <span class="title">#<%=helper.item_list[a].customer_id %> View</span>
+                                                    </a>
+                                                    </span>
+                                                    </td>
+                                                    <td class="nk-tb-col">
+                                                    <span class="tb-product" >
+                                                    <span class="title">
+                                                    <%=helper.item_list[a].quantity %>
+                                                    </span>
+                                                    </span>
+                                                    </td>
+                                                    <td class="nk-tb-col">
+                                                    <span class="tb-product" >
+                                                    <%=helper.item_list[a].price %> <br/>
+                                                    </span>
+                                                    </td>
+                                                    <td class="nk-tb-col">
+                                                    <span class="tb-product" >
+                                                    <%=helper.item_list[a].old_price %>
+                                                    </span>
+                                                    </td>
+                                                    <td class="nk-tb-col nk-tb-col-tools">
+                                                    <ul class="nk-tb-actions gx-1 my-n1">
+                                                    <li class="mr-n1">
+                                                    <div class="dropdown">
+                                                    <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                    <ul class="link-list-opt no-bdr">
+
+                                                    <li><a   href="javascript:void(0);" class='link_item_delete'  data_type='<%=helper.item_list[a].data_type%>' tbl_id='<%=helper.item_list[a].tbl_id%>' ><em class="icon ni ni-trash"></em><span>Remove</span></a></li>
+                                                    </ul>
+                                                    </div>
+                                                    </div>
+                                                    </li>
+                                                    </ul>
+                                                    </td>
+                                                    </tr>
+                                                    <!-- .nk-tb-item -->
+                                                    <%}%>
+                                        </tbody>
+                                    </table>
+                                    <!-- .nk-tb-list -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content @e -->
+                <!-- footer @s -->
+                <div class="nk-footer">
+                    <%- include ('_footer') %>
+                </div>
+                <!-- footer @e -->
+            </div>
+            <!-- wrap @e -->
+        </div>
+        <!-- main @e -->
+        <!-- Modal Fom  9_modal_add-->
+        <div class="modal fade" tabindex="-1" id="modal_item_add">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id='lbl_item_edit_title'>Add</h5>
+                        <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                            <em class="icon ni ni-cross"></em>
+                        </a>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#" method='#' class="form-validate is-alter">
+                            <div class="form-group">
+                                <label class="form-label" for="full-name" >Title</label>
+                                <div class="form-control-wrap">
+                                    <input type="text" class="form-control" name="tb_item_add_title" id="tb_item_add_title" value=''>
+                                    <input type="hidden" class="form-control" name="tb_item_list_count" id="tb_item_list_count" value='<%=helper.item_list.length%>' required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" id='btn_item_add_submit' class="btn btn-lg btn-primary"  data-dismiss="modal">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer bg-light">
+                        <span class="sub-text"><!--text--!></span>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        <!-- app-root @e -->
+                        <%- include ('_footer_file') %>
+     <script src="/js/biz_scriptz/product.js"></script>
+                        <!-- JavaScript -->
+                        <script>
+                            $(document).ready(function() {
+                                $("#tbl_list").on("click", ".link_item_edit", function(){
+                                    customer_id = $(this).attr('customer_id');
+                                    window.location='/order/cart/detail/'+customer_id;
+                                });
+                            });
+                        </script>
+    </body>
+</html>

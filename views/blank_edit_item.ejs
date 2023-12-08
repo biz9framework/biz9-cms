@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+    <head>
+        <%- include ('_header') %>
+    </head>
+    <body class="nk-body bg-lighter npc-default pg-auth dark-mode">
+        <div class="nk-app-root">
+            <!-- main @s -->
+            <div class="nk-main ">
+                <%- include ('_header_nav') %>
+                <!-- content @s -->
+                <div class="nk-content">
+                    <div class="container-fluid">
+                        <div class="nk-content-inner">
+                            <div class="nk-content-body">
+                                 <div class="nk-block-head nk-block-head-sm">
+                                    <div class="nk-block-head-sub">
+                                        <a class="back-to" href="<%=helper.back_url%>">
+                                            <em class="icon ni ni-arrow-left"></em><span>Back</span>
+                                        </a>
+                                    </div>
+                                    <div class="nk-block-between">
+                                        <div class="nk-block-head-content">
+                                            <h3 class="nk-block-title page-title"  id='h_item_edit_title'><%=helper.item.title%></h3>
+                                            <div id="div_validation_message">
+                                                <div class="alert alert-success alert-icon">
+                                                    <em class="icon ni ni-check-circle"></em> <strong>
+                                                        Your item </strong>has been saved successfully.
+                                                </div>
+                                            </div>
+                                            <div class="nk-block-des text-soft">
+                                                <p></p>
+                                            </div>
+                                        </div><!-- .nk-block-head-content -->
+                                    </div><!-- .nk-block-between -->
+                                </div>
+                                <!-- .nk-block-head -->
+                                  <!-- .nk-block -->
+                                <div class="nk-block nk-block-lg">
+                                    blank content
+                                </div>
+                                <!-- .nk-block -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content @e -->
+                <!-- footer @s -->
+                <div class="nk-footer">
+                    <%- include ('_footer') %>
+                </div>
+                <!-- footer @e -->
+            </div>
+            <!-- wrap @e -->
+        </div>
+        <!-- main @e -->
+        <!-- app-root @e -->
+
+        <!-- modal_start -->
+        <!-- modal_end -->
+
+    </body>
+    <%- include ('_footer_file') %>
+    <script src="/js/item_map_edit_list.js"></script>
+    <script>
+        $(document).ready(function() {
+                });
+    </script>
+</html>
