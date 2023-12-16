@@ -1,14 +1,12 @@
 /* --- APP CONFIG START  --- */
-const APP_ID='19';
+const PROJECT_ID='19';
 const APP_TITLE_ID='mobile-19';
-//const APP_TITLE_ID='mobile-240';
 const APP_TITLE='BiZ9-CMS';
 const APP_PORT="1900";
 const APP_CLOUD_BUCKET='bappz';
 /* --- APP CONFIG END  --- */
 /* --- ENV FILE START --- */
-//const FILE_SAVE_PATH=__dirname+"/public/uploads/";//prod
-const FILE_SAVE_PATH="/home/mama/www/projectz/200/website/public/uploads/";//prod
+const FILE_SAVE_PATH=__dirname+"/public/uploads/";//prod
 //const FILE_URL="http://localhost:1901/uploads/"; //prod
 //const FILE_URL="/uploads/"; //prod
 const FILE_URL="https://"+APP_CLOUD_BUCKET+".s3.amazonaws.com/" //aws_s3_url
@@ -25,8 +23,8 @@ const MONGO_IP='localhost';  // OS_ENV = process.env.BIZ9_BOX_IP_217; local = 'l
 const MONGO_USERNAME_PASSWORD=''; // local = ''; remote = 'ban:1234567@'
 const MONGO_PORT="27019";
 const MONGO_SERVER_USER='admin';
-const MONGO_CONFIG_FILE='/etc/mongod.conf';
-const SSH_KEY_FILE="";
+const MONGO_CONFIG='/etc/mongod.conf';
+const SSH_KEY="";
 /* --- MONGO END --- */
 /* --- REDIS START --- */
 const REDIS_URL="0.0.0.0";
@@ -35,8 +33,8 @@ const REDIS_PORT="27019";
 /* --- ENV AWS START --- */
 const AWS_S3_SAVE=true;
 const AWS_S3_BUCKET=APP_CLOUD_BUCKET;
-const AWS_KEY="AKIAWTPS5CXHFVMFKG7V";
-const AWS_SECRET="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";
+const AWS_KEY="";
+const AWS_SECRET="";
 const AWS_REGION='us-east-2';//prod
 /* --- ENV AWS END --- */
 //-BREVO-START
@@ -47,7 +45,7 @@ const BREVO_FORM_SEND_TEMPLATE_ID='10';
 exports.BREVO_KEY = BREVO_KEY;
 exports.BREVO_ORDER_SEND_TEMPLATE_ID = BREVO_ORDER_SEND_TEMPLATE_ID;
 exports.BREVO_FORM_SEND_TEMPLATE_ID = BREVO_FORM_SEND_TEMPLATE_ID;
-exports.APP_ID = APP_ID;
+exports.PROJECT_ID = PROJECT_ID;
 exports.APP_TITLE_ID = APP_TITLE_ID;
 exports.APP_TITLE = APP_TITLE;
 exports.APP_PORT = APP_PORT;
@@ -55,8 +53,8 @@ exports.MONGO_IP = MONGO_IP;
 exports.MONGO_USERNAME_PASSWORD = MONGO_USERNAME_PASSWORD;
 exports.MONGO_PORT = MONGO_PORT;
 exports.MONGO_SERVER_USER = MONGO_SERVER_USER;
-exports.MONGO_CONFIG_FILE = MONGO_CONFIG_FILE;
-exports.SSH_KEY_FILE = SSH_KEY_FILE;
+exports.MONGO_CONFIG = MONGO_CONFIG;
+exports.SSH_KEY = SSH_KEY;
 exports.REDIS_URL = REDIS_URL;
 exports.REDIS_PORT = REDIS_PORT;
 exports.AWS_S3_SAVE = AWS_S3_SAVE;
