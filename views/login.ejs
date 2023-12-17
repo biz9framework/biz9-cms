@@ -105,7 +105,7 @@
                                         </div>
                                         <div class="col-lg-6">
                                         <div class="nk-block-content text-center text-lg-left">
-                                        <p class="text-soft">&copy; 2023 BiZ9 Framework Version <span id='biz_sp_biz9_framework_version'> </span>. App Version: <%=helper.app_version%>. All Rights Reserved. App ID: <%=helper.app_title_id%>.
+                                        <p class="text-soft">&copy; 2023 BiZ9-CMS Version <span id='biz_sp_biz9_framework_version'> </span>. App Version: <span id='biz_sp_app_version'></span>. All Rights Reserved. App ID: <%=helper.app_title_id%>.
 </p>
                                         </div>
                                         </div>
@@ -159,9 +159,11 @@ function get_cms(){
         enctype: 'multipart/form-data',
         data: {},
         success: function(data){
+            console.log(data);
                 $("#img_cms_logo").attr('src',data.helper.cms.photo_obj.thumb_url);
                 $("#sp_item_cms_title").html(data.helper.cms.title);
                 $("#biz_sp_biz9_framework_version").html(data.helper.biz9_framework_version);
+                $("#biz_sp_app_version").html(data.helper.app_version);
         }
     });
 }

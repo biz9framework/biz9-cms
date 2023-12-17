@@ -16,12 +16,11 @@ ENV=process.env.NODE_ENV;
 APP_ENV=biz9_app_config.APP_ENV;
 /*--- APP DEFAULT END ---*/
 /* --- APP CONFIG START  --- */
-BIZ9_CMS_VERSION='6.7.6'
-APP_VERSION='1.1.9'
+BIZ9_CMS_VERSION='6.7.7'
+APP_VERSION="1.1.9"
 PROJECT_ID=biz9_app_config.PROJECT_ID;
 APP_TITLE_ID=biz9_app_config.APP_TITLE_ID;
 APP_TITLE=biz9_app_config.APP_TITLE_ID;
-APP_VERSION='1.1.9'
 APP_PORT=biz9_app_config.APP_PORT;
 /* --- APP CONFIG END  --- */
 /* --- MONGO START --- */
@@ -85,7 +84,7 @@ data_config={
 };
 app_config={
     app_title_id:biz9_app_config.APP_TITLE_ID,
-    app_version:biz9_app_config.APP_VERSION,
+    app_version:APP_VERSION,
     app_title:biz9_app_config.APP_TITLE,
     project_id:biz9_app_config.PROJECT_ID,
     file_url:biz9_app_config.FILE_URL,

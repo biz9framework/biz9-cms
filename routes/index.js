@@ -170,6 +170,8 @@ router.get('/get_cms',function(req, res, next) {
     var helper = biz9.get_helper_user(req);
     helper.cms=biz9.get_new_biz_item(DT_ITEM,0);
     helper.biz9_framework_version=BIZ9_CMS_VERSION;
+    helper.app_version=APP_VERSION;
+    helper.project_id=PROJECT_ID;
     async.series([
         function(call){
             biz9.get_client_db(function(error,_client_db){
@@ -178,7 +180,6 @@ router.get('/get_cms',function(req, res, next) {
                 call();
             });
         },
-
         function(call){
             sql = {title_url:'cms'};
             sort={};
@@ -194,7 +195,6 @@ router.get('/get_cms',function(req, res, next) {
                 call();
             });
         },
-
     ],
         function(err, result){
             res.send({helper:helper});
