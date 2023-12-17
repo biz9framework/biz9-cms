@@ -16,7 +16,7 @@ ENV=process.env.NODE_ENV;
 APP_ENV=biz9_app_config.APP_ENV;
 /*--- APP DEFAULT END ---*/
 /* --- APP CONFIG START  --- */
-BIZ9_CMS_VERSION='6.7.1'
+BIZ9_CMS_VERSION='6.7.3'
 APP_VERSION='1.1.9'
 PROJECT_ID=biz9_app_config.PROJECT_ID;
 APP_TITLE_ID=biz9_app_config.APP_TITLE_ID;

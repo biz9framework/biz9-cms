@@ -210,6 +210,8 @@ fi
 echo "----------------------------------"
 echo "APP Title: ${APP_TITLE}"
 echo "APP Type: ${app_type}"
+echo "Branch: ${branch_dir}"
+echo "Commit Notes: ${commit_notes}"
 echo "Done!"
 echo "----------------------------------"
 exit 1
