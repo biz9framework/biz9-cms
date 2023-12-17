@@ -16,7 +16,7 @@ ENV=process.env.NODE_ENV;
 APP_ENV=biz9_app_config.APP_ENV;
 /*--- APP DEFAULT END ---*/
 /* --- APP CONFIG START  --- */
-BIZ9_CMS_VERSION='6.6.8'
+BIZ9_CMS_VERSION='6.6.9'
 APP_VERSION='1.1.9'
 PROJECT_ID=biz9_app_config.PROJECT_ID;
 APP_TITLE_ID=biz9_app_config.APP_TITLE_ID;
@@ -92,8 +92,7 @@ app_config={
     biz_map:biz9_app_config.BIZ_MAP
 }
 /* --- BIZ9 CONFIG START --- */
-//biz9=require("biz9-core")(app_config,data_config);
-biz9=require("/home/mama/www/doqbox/biz9/biz9-core/src/unstable")(app_config,data_config);
+biz9=require("biz9-core")(app_config,data_config);
 /* --- BiZ9_CORE_CONFIG-END --- */
 /* --- PHOTO-SIZE-START --- */
 PHOTO_SIZE_ALBUM={title_url:"",size:0};
