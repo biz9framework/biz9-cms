@@ -3,7 +3,8 @@ const PROJECT_ID='19';
 const APP_TITLE_ID='mobile-19';
 const APP_TITLE='BiZ9-CMS';
 const APP_PORT="1900";
-const APP_CLOUD_BUCKET='bappz';
+//const APP_CLOUD_BUCKET='bappz';
+const APP_CLOUD_BUCKET='bucket-204';
 /* --- APP CONFIG END  --- */
 /* --- ENV FILE START --- */
 const FILE_SAVE_PATH=__dirname+"/public/uploads/";//prod
@@ -33,9 +34,9 @@ const REDIS_PORT="27019";
 /* --- ENV AWS START --- */
 const AWS_S3_SAVE=true;
 const AWS_S3_BUCKET=APP_CLOUD_BUCKET;
-const AWS_KEY="";
-const AWS_SECRET="";
-const AWS_REGION='us-east-2';//prod
+const AWS_KEY="AKIAT4Y3WGDS6CSRMT5I";
+const AWS_SECRET="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";
+const AWS_REGION='us-east-1';//prod
 /* --- ENV AWS END --- */
 //-BREVO-START
 const BREVO_KEY="";
