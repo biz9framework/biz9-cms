@@ -2,7 +2,6 @@
 function get_item_note(){
     return tinymce.activeEditor.getContent();
 }
-alert('ddd');
 function init_item_note(_str){
     if(!_str){
         _str='';
