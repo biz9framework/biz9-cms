@@ -3,8 +3,7 @@ const PROJECT_ID='19';
 const APP_TITLE_ID='mobile-dec';
 const APP_TITLE='BiZ9-CMS';
 const APP_PORT="1900";
-//const APP_CLOUD_BUCKET='bappz';
-const APP_CLOUD_BUCKET='bucket-204';
+const APP_CLOUD_BUCKET='bappz';
 /* --- APP CONFIG END  --- */
 /* --- ENV FILE START --- */
 const FILE_SAVE_PATH=__dirname+"/public/uploads/";//prod
