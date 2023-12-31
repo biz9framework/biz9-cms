@@ -33,9 +33,9 @@ const REDIS_PORT="27019";
 /* --- ENV AWS START --- */
 const AWS_S3_SAVE=true;
 const AWS_S3_BUCKET=APP_CLOUD_BUCKET;
-const AWS_KEY="AKIAT4Y3WGDS6CSRMT5I";
-const AWS_SECRET="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";
-const AWS_REGION='us-east-1';//prod
+const AWS_KEY="AKIAWTPS5CXHJ43JCAD7";
+const AWS_SECRET="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";
+const AWS_REGION='us-east-2';//prod
 /* --- ENV AWS END --- */
 //-BREVO-START
 const BREVO_KEY="";
