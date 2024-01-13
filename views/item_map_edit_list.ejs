@@ -46,7 +46,9 @@
                                                     <span class="tb-product" style='text-align:center'>
                                                         <a   href="/item_map/item_map_edit/<%=helper.item_list[a].tbl_id%>">
                                                             <img src="<%=helper.item_list[a].photo_obj.thumb_url %>" alt="" class="biz_list_thumb" ><br/>
+                                                            <%if(helper.item_list[a].title){%>
                                                             <span class="title item_title" ><%=helper.item_list[a].title.substring(0,80)+''; %></span>
+                                                            <%}%>
                                                         </a>
                                                     </span>
                                                 </td>
