@@ -1,7 +1,7 @@
 # BiZ9-CMS
  BiZ9-CMS is a free and open-source content management system (CMS) for publishing application content. This CMS is equipped to process orders, handle service booking, modify events, and even add blog posts. The CMS is fully customizable and can be modified to fit the applications needs. 
 
-# ScrenshotZ
+# Screen ShotZ
 ![Login](public/images/readme/1.jpg "Login")
 
 ![Blog Post List](public/images/readme/2.jpg "Blog Post List")
