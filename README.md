@@ -17,6 +17,9 @@ Edit")
 
 ![Product Photos Edit](public/images/readme/6.jpg "Product Photos Edit")
 
+![Product Order Edit](public/images/readme/13.jpg "Product Order Edit")
+
+![Product Info Edit](public/images/readme/12.jpg "Product Info Edit")
 
 
 
