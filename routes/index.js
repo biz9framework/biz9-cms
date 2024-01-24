@@ -78,7 +78,6 @@ router.get('/login', function(req, res, next) {
             });
         },
         //test--start
-        /*
         function(call){
             email='ceostage@bossappz.com'
             password='1234567'
@@ -94,8 +93,8 @@ router.get('/login', function(req, res, next) {
                 }
             });
         },
-        */
         //test--end
+        /*
         function(call){
             if(helper.user.tbl_id!=0){
                 res.redirect('/');
@@ -104,6 +103,7 @@ router.get('/login', function(req, res, next) {
                 call();
             }
         },
+        */
         function(call){
             sql = {title_url:'cms'};
             sort={};
