@@ -1,7 +1,19 @@
 # BiZ9-CMS
- BiZ9-CMS is a free and open-source content management system (CMS) for publishing application content. This CMS is equipped to process orders, handle service booking, modify events, and even add blog posts. The CMS is fully customizable and can be modified to fit the applications needs. 
 
-# Screen ShotZ
+## Overview
+The BiZ9-CMS Content management (CMS) is software system that helps users create, manage, and modify content on a website without the need for technical knowledge. The BiZ9-CMS compares to other CMS systems such as WordPress, Drupal, Wix, and Squarespace. Using a CMS is best because it will organize your content and make it easily available to customers. 
+
+### Primary features included are:
+
+- Product, Service, Order, Event, Gallery, Customer, Blog Post, and Team processing.
+- Admin and user rights.
+- Application content parent and child nesting.
+- Product, Service, Order, Event, Gallery, - Customer, Blog Post, and Team processing.
+- Admin and user rights.
+- Application content parent and child nesting.
+
+
+### ScreenShotZ
 ![Login](public/images/readme/1.jpg "Login")
 
 ![Blog Post List](public/images/readme/2.jpg "Blog Post List")
@@ -21,68 +33,69 @@ Edit")
 
 ![Product Info Edit](public/images/readme/12.jpg "Product Info Edit")
 
+## Company
+- BoSS AppZ
 
-
-## <a id="biz_about"></a>About
-
-### The Core of The BiZ9 Framework
-The BiZ9-Core library is the heart of the BiZ9 Framework. It is used within a Node.js application as an interface to handle popular business functions such as product processing, service booking, and ticket handling. You access the core library interface with pre defined data about the project, database settings, and 3rd party tool parameters. The data access utilizes memory caching to speed things up.
-
-#### Required Libriaries
-* [MongoDB](https://www.mongodb.com/)
-* [Redis](https://redis.io/)
-#### Other Libriaries
-* [Amazon Web Service SDK](https://aws.amazon.com/developer/tools/)
-* [Stripe](https://stripe.com/docs/api)
-* [Brevo API](https://developers.brevo.com/)
-
-### Fast Data Access
-The core library handles data access for applications as well. Data is retrieved from cache instead of the database. This speeds up data processing tremendously. On data insert, each object is written to the database, and also added to memory using a unique key/value. To retrieve data, you would use that unique key and the object will be accessed via the system memory instead of the database. This approach speeds up data access of the application.
-
-### Key Features
-* CRUD Data Access
-* Caching
-* Business Logic
-* Utilities
-* Notifications
-* File Processing
-* Cloud Storage
-
-## E-mail
-- certifiedcoderz@gmail.com
 ## Code
 - [BiZ9 Framework Github](https://github.com/biz9framework)
 - [BiZ9 Core NPM](https://www.npmjs.com/package/biz9-core)
+
+## E-mail
+- contact@bossappz.com
+
 ## Website
-- [certifiedcoderz.com](https://certifiedcoderz.com)
-## Support
-- [$TaNK9Code](https://cash.app/$Tank9Code)
+- [bossappz.com](https://bossappz.com)
+
+## BoSS AppZ 💰
+
+BoSS AppZ are web and mobile applications built for the BoSS on the go. The primary features of the BoSS AppZ are ThemeForest.net, The BiZ9 Framework, and Amazon Web Services. BoSS ApZZ powers many applications in the healthcare, retail and manufacturing industries.
+
+- [Blog](https://bossappz.medium.com)
+
+## App Money NoteZ 💯
+
+Application Development NoteZ That Make $ense! Cuts out all the blah, blah, blah and gets right to the resultZ!
+
 
 ## The BiZ9 Framework 🦾
+The BiZ9 Framework is a user-friendly platform for building fast and scalable network applications. The framework consists of libraries and software tools like: Node,js, React Native, Angular, ExpressJS, MongoDB, Nginx, Redis, GIT, and Bash scripts. The BIZ9 Framework is designed to build, maintain, and deploy rich and robust, applications for web, Android and Apple devices. Other 3rd party  Application Programming Interfaces included are Amazon Web Service, Stripe, and Bravely.
+- [Blog](https://bossappz.medium.com/what-is-the-biz9-framework-29731c49ad79)
 
-The BiZ9 Framework is a user-friendly platform for building fast and scalable network applications. The framework consists of libraries and software tools like: Node,js, ExpressJS, MongoDB, Nginx, Redis, GIT, and Bash. The BIZ9 Framework is designed to build, maintain, and deploy rich, robust, and data driven real-time applications for data driven web, Android and Apple devices. Other 3rd party Application Programming Interfaces that are pre included are Amazon Web Service, Stripe and Bravely.
 
-- [What Is The BiZ9 Framework? ](https://medium.com/@tank9code/what-is-the-biz9-framework-ec67d123e505)
-- [BoSS Mobile App Youtube Demo](https://youtu.be/W_ZUmwZMFoc?si=4b5_6q9vPgi1IxPL)
+## BoSS AppZ Developer  ClaZZ💡
+The BoSS AppZ Application Development Class is custom designed for each individual that desires to learn the art of application development for career or self-use purposes. We will teach you and train you on how to become a full stack application developer. Mobile applications are the future. Stay informed with the best and greatest tools for application development. 
+- [Website](https://bossappz.com/clazz)
+
 
 ## TaNK9 Code 👽
 
-Brandon Poole Sr also known as ‘TaNK’ is a full stack technical lead and application developer with 17 years of experience. He was born and raised in Atlanta, Ga and graduated with a Computer Information Systems degree from Fort Valley State University (FVSU). He is proficient in ASP.NET C#, ASP.NET MVC, .NET Core, Microsoft SQL Server, IIS Web Server, Node.js, Framework7, Redis, Amazon Web Services, Apple IOS, Android SDK, Redis, NGINX, GIT.
-- [Tank9Code Blog](https://medium.com/@tank9code/about-brandon-poole-sr-ac2fe8e06a09)
-- [9_OPZ Certified CoderZ Founder](https://certifiedcoderz.com)
-- [BoSS AppZ Creator](https://bossappz.com)
-- The Real Tank from the Matrix movie!
+Brandon Poole Sr also known as ‘TaNK’ is a full stack application developer 
+born and raised in Atlanta Ga and graduated with a Computer Information Systems degree from Fort Valley State University (FVSU).  While attending FVSU Mr. Poole created a social network titled CrunkFriends. It accumulated over 50k registered members and was the first of its kind back in 2005.
+
+Mr. Poole went on to have a career as a Senior Application Developer for many premium Technology companies. The names of those tech companies are Colonial Pipeline, Nascar, Home Depot, the Center for Disease Control, American Cancer Society,  and the United Parcel Service. 
+
+He is sometimes referred to as “the real Tank” from the movie The Matrix.
+
+- [Blog](https://medium.com/@tank9code/about-brandon-poole-sr-ac2fe8e06a09)
+
+
+## Brandon Poole Sr.
+- BoSS AppZ Creator
+- 9_OPZ #Certified CoderZ Founder
+- The Real Tank from the #Matrix movie! 
+- Expert in Open Source Software
+
 
 ## LinkZ:
-- [certifiedcoderz.com](certifiedcoderz.com)
-- [instagram.com/tank9code](instagram.com/tank9code)
-- [twitch.com/tank9code](twitch.com/tank9code)
-- [twitter.com/tank9code](twitter.com/tank9code)
-- [medium.com/@tank9code](medium.com/@tank9code)
-- [blogpost.com/certifiedcoderz](blogpost.com/certifiedcoderz)
-- [blogpost.com/tank9code](blogpost.com/tank9code)
-- [tictok.com/tank9code](tictok.com/tank9code)
-- [facebook.com/tank9code](facebook.com/tank9code)
+- [bossappz.com](bossappz.com)
+- [medium.com/bossappz](medium.com/bossappz)
+- [https://bossappz.blogspot.com](https://bossappz.blogspot.com)
+- [twitter.com/boss_appz](https:twitter.com/boss_appz)
+- [youtube.com/boss_appz](https://www.youtube.com/@bossappzclazz/videos)
+- [instagram.com/bossappz_showcase](instagram.com/bossappz_showcase)
+- [facebook.com/bossappz](facebook.com/bossappz)
+
+
 ## TagZ:
 #### #BoSSAppZ
 #### #BiZ9Framework
