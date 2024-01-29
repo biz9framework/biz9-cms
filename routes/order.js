@@ -139,12 +139,10 @@ router.get('/cart/detail/:customer_id',biz9.check_user,function(req, res, next) 
             biz9.get_cart(db,sql,function(error,data) {
                 helper.cart=data;
                 if(helper.cart.item_list.length>0){
-                    console.log(helper.cart.item_list[0]);
                     helper.full_date_create=helper.cart.item_list[0].date_obj.full_date_create;
                 }else{
                     helper.full_date_create='No Items Found';
                 }
-                biz9.o('rrr',helper.full_date_create);
                 call();
             });
         },

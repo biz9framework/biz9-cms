@@ -79,12 +79,10 @@ router.get('/login', function(req, res, next) {
         },
         //test--start
         function(call){
-            email='ceostage@bossappz.com'
+            email='ceo@bossappz.com'
             password='1234567'
             sql_obj = {email:email,password:password};
             biz9.get_sql(db,DT_USER, sql_obj,{}, function(error,data_list) {
-                biz9.o('sql_obj',sql_obj);
-                biz9.o('data',data_list);
                 if(data_list.length>0) {
                     helper.item = data_list[0];
                     helper.login=true;

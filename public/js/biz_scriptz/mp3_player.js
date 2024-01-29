@@ -1,5 +1,6 @@
 //9_upload_track
 $('#form_track_file_upload').submit(function(){
+    $('#j_player').hide();
     hide_tabs();
     $.ajax({
         type: 'POST',
@@ -17,7 +18,10 @@ $('#form_track_file_upload').submit(function(){
             $('#tb_item_track_filename').val(data.helper.item.mp3filename);
             $('#tb_item_track_duration').val(data.helper.item.mp3duration);
             g_file_url=$('#tb_item_file_url').val();
-            bind_biz_track_player(data.helper.item.mp3filename,g_file_url+data.helper.item.mp3filename);
+            $("#jquery_jplayer_1").jPlayer("setMedia", {
+                title:data.helper.item.mp3filename,
+                mp3:g_file_url+data.helper.item.mp3filename
+            });
         },
         error: function(data){
             alert('UPLOAD MP3 ERROR');
