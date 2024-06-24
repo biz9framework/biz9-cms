@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+    <head>
+        <%- include ('_header') %>
+    </head>
+    <body class="nk-body bg-lighter npc-default pg-auth dark-mode">
+        <div class="nk-app-root">
+            <!-- main @s -->
+            <div class="nk-main ">
+                <%- include ('_header_nav') %>
+                <!-- content @s -->
+                <div class="nk-content">
+                    <div class="container-fluid">
+                        <div class="nk-content-inner">
+                            <div class="nk-content-body">
+                                <div class="nk-block-head nk-block-head-sm">
+                                    <div class="nk-block-head-sub">
+                                        <a class="back-to" href="<%=helper.back_url%>">
+                                            <em class="icon ni ni-arrow-left"></em><span>Back</span>
+                                        </a>
+                                    </div>
+                                    <div class="nk-block-between">
+                                        <div class="nk-block-head-content">
+                                            <h3 class="nk-block-title page-title"  id='h_item_edit_title'><%=helper.item.title%></h3>
+                                            <div class="nk-block-des text-soft">
+                                                <p></p>
+                                            </div>
+                                        </div><!-- .nk-block-head-content -->
+                                    </div><!-- .nk-block-between -->
+                                </div>
+                                <!-- .nk-block-head -->
+                                <!-- .nk-block -->
+                                <div class="nk-block nk-block-lg">
+                                    <div class="card card-preview">
+                                        <div class="card-inner">
+                                            <div class="preview-block">
+                                                <ul id='ul_nav_list' class="nk-nav nav nav-tabs"  id='div_tab_content'>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" data-toggle="tab" href="#tab_photo">Photo</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-toggle="tab" href="#tab_value">Values</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-toggle="tab" href="#tab_big">Note</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-toggle="tab" href="#tab_html">HTML</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-toggle="tab" href="#tab_setting">Setting</a>
+                                                    </li>
+                                                </ul>
+                                                <!-- .tab-content -->
+                                                <div class="tab-content">
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_title">
+                                                        <div class="row gy-4 tabs">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <span class='sp_photo'><img height='150px'width='150px' class='img_up_primary' src='/images/no_image.png'/></span>
+
+                                                                    <input  type="hidden" class="form-control form-control-lg" id="tb_item_edit_title" value="<%=helper.item.title%>" placeholder="Title">
+                                                                    <input  type="hidden" class="form-control form-control-lg" id="tb_item_tbl_id"  value="<%=helper.item.tbl_id%>" >
+                                                                    <input  type="hidden" class="form-control form-control-lg" id="tb_item_data_type"  value="<%=helper.item.data_type%>" >
+                                                                    <input  type="hidden" class="form-control form-control-lg" id="tb_item_photofilename"   value="<%=helper.item.photofilename%>" >
+                                                                    <input  type="hidden" class="form-control form-control-lg" id="tb_item_map_tbl_id"   value="<%=helper.item_map.tbl_id%>" >
+                                                                    <input  type="hidden" class="form-control form-control-lg" id="tb_item_map_data_type"   value="<%=helper.item_map.data_type%>" >
+                                                                    <input  type="hidden" class="form-control form-control-lg" id="tb_item_view_new_photofilename" value="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane active" id="tab_photo">
+                                                            <%- include ('_biz_tab_photo') %>
+                                                    </div>
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_value">
+                                                        <%- include ('_biz_tab_value_prop') %>
+                                                    </div>
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_big">
+                                                        <%- include ('_biz_tab_note') %>
+                                                    </div><!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_html">
+                                                        <%- include ('_biz_tab_html') %>
+                                                    </div><!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_setting">
+                                                         <%- include ('_biz_tab_setting') %>
+                                                    </div>
+                                                    <!--bottom start--!>
+                                                        <div class="row gy-4 tabs">
+                                                        <%- include ('_biz_tab_bottom') %>
+                                                        </div>
+                                                    <!--bottom end--!>
+                                                        </div>
+                                                        <!-- .tab-content -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- .nk-block -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content @e -->
+                <!-- footer @s -->
+                <div class="nk-footer">
+                    <%- include ('_footer') %>
+                </div>
+                <!-- footer @e -->
+            </div>
+            <!-- wrap @e -->
+        </div>
+        <!-- main @e -->
+        <!-- app-root @e -->
+        <!-- modal_start -->
+        <!-- modal_end -->
+    </body>
+    <%- include ('_footer_file') %>
+    <script src="/js/biz_scriptz/item_map.js"></script>
+    <script>
+        $(document).ready(function() {
+                  get_bind_biz_item();
+                });
+    </script>
+</html>

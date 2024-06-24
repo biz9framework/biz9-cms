@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+    <head>
+        <%- include ('_header') %>
+    </head>
+    <body class="nk-body bg-lighter npc-default pg-auth dark-mode">
+        <div class="nk-app-root">
+            <!-- main @s -->
+            <div class="nk-main ">
+                <%- include ('_header_nav') %>
+                <!-- content @s -->
+                <div class="nk-content">
+                    <div class="container-fluid">
+                        <div class="nk-content-inner">
+                            <div class="nk-content-body">
+                                <div class="nk-block-head nk-block-head-sm">
+                                    <div class="nk-block-head-sub">
+                                        <a class="back-to" href="<%=helper.back_url%>">
+                                            <em class="icon ni ni-arrow-left"></em><span>Back</span>
+                                        </a>
+                                    </div>
+                                    <div class="nk-block-between">
+                                        <div class="nk-block-head-content">
+                                            <h3 class="nk-block-title page-title"  id='h_item_edit_title'><%=helper.item.name%></h3>
+                                            <div class="nk-block-des text-soft">
+                                                <p></p>
+                                            </div>
+                                        </div><!-- .nk-block-head-content -->
+                                    </div><!-- .nk-block-between -->
+                                </div>
+                                <!-- .nk-block-head -->
+                                <!-- .nk-block -->
+                                <div class="nk-block nk-block-lg">
+                                    <div class="card card-preview">
+                                        <div class="card-inner">
+                                            <div class="preview-block">
+                                                <ul id='ul_nav_list' class="nk-nav nav nav-tabs"  id='div_tab_content'>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" data-toggle="tab" href="#tab_title">Primary</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-toggle="tab" href="#tab_photo">Photo</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-toggle="tab" href="#tab_setting">Setting</a>
+                                                    </li>
+                                                </ul>
+                                                <!-- .tab-content -->
+                                                <div class="tab-content">
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane active" id="tab_title">
+                                                        <div class="card-inner">
+                                                                    <form action="#">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label" for="tb_item_edit_name">Full Name</label>
+                                                                            <div class="form-control-wrap">
+                                                                            <input  type="text" class="form-control form-control-lg" id="tb_item_edit_name" value="" placeholder="">
+                                                                        <input  type="hidden" class="form-control form-control-lg" id="tb_item_tbl_id" value="<%=helper.item.tbl_id%>">
+                                                                        <input  type="hidden" class="form-control form-control-lg" id="tb_item_data_type" value="<%=helper.item.data_type%>">
+                                                                        <input  type="hidden" class="form-control form-control-lg" id="tb_item_photofilename" value="<%=helper.item.photofilename%>">
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="form-label" for="tb_item_edit_location">Location</label>
+                                                                            <div class="form-control-wrap">
+                                                                                <input class="form-control" id="tb_item_edit_location"  value="" >
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label class="form-label" for="tb_item_edit_position">Position</label>
+                                                                            <div class="form-control-wrap">
+                                                                                <input class="form-control" id="tb_item_edit_position"  value="" >
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="form-label" for="tb_item_edit_position">Comment</label>
+                                                                           <div class="form-control-wrap">
+                                                                    <textarea class="form-control no-resize"  id="tb_item_edit_comment" id="default-textarea"></textarea>
+                                                                </div>
+                                                                        </div>
+
+                                                                    </form>
+                                                                </div>
+                                                    </div>
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_photo">
+                                                        <%- include ('_biz_tab_photo') %>
+                                                    </div>
+                                                    <div class="tab-pane" id="tab_big" >
+                                                        <%- include ('_biz_tab_note') %>
+                                                    </div>
+                                                    <div class="tab-pane" id="tab_html">
+                                                        <%- include ('_biz_tab_html') %>
+                                                    </div>
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_file">
+                                                        <div class="row gy-4 tabs">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <form  action='/cloud/file/update_file_web' id='form_file_upload'  method='POST' encType="multipart/form-data" >
+                                                                        <label class="form-label" for="full-name">Upload</label>
+                                                                        <input type="file" class="" name="file_upload_file_form" id="file_upload_file_form"><br/><br/>
+                                                                        <button type="submit" id='btn_item_file_upload' class="btn btn-lg btn-primary">Upload</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                            <div  id='div_file_info' class="col-12">
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_photo">
+                                                        <%- include ('_biz_tab_photo') %>
+                                                    </div>
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_value">
+                                                        <div id="accordion" class="accordion">  <div class="accordion-item">      <a href="#" class="accordion-head" data-toggle="collapse" data-target="#accordion-item-1"> <h6 class="title">Primary FieldZ</h6> <span class="accordion-icon"></span>      </a>      <div class="accordion-body collapse show" id="accordion-item-1" data-parent="#accordion">          <div class="accordion-inner">              <p>
+                                                                        <div class="row gy-4 tabs">
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-label" for="#"></label>
+                                                                                    <input  type="text" class="form-control form-control-lg" id="tb_item_edit_field_1">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-label" for="#"></label>
+                                                                                    <input  type="text" class="form-control form-control-lg" id="tb_item_edit_value_1">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row gy-4 tabs">
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-label" for="#"></label>
+                                                                                    <input  type="text" class="form-control form-control-lg" id="tb_item_edit_field_2">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-label" for="#"></label>
+                                                                                    <input  type="text" class="form-control form-control-lg" id="tb_item_edit_value_2">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row gy-4 tabs">
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-label" for="#"></label>
+                                                                                    <input  type="text" class="form-control form-control-lg" id="tb_item_edit_field_3">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-label" for="#"></label>
+                                                                                    <input  type="text" class="form-control form-control-lg" id="tb_item_edit_value_3">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row gy-4 tabs">
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-label" for="#"></label>
+                                                                                    <input  type="text" class="form-control form-control-lg" id="tb_item_edit_field_4">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-label" for="#"></label>
+                                                                                    <input  type="text" class="form-control form-control-lg" id="tb_item_edit_value_4">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="accordion-item">
+                                                                <a href="#" class="accordion-head collapsed" data-toggle="collapse" data-target="#accordion-item-2">
+                                                                    <h6 class="title">Secondary FieldZ</h6>          <span class="accordion-icon"></span>
+                                                                </a>
+                                                                <div class="accordion-body collapse" id="accordion-item-2" data-parent="#accordion" >
+                                                                    <div class="accordion-inner">
+                                                                        <p>
+                                                                    <div class="row gy-4 tabs">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_field_5">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_value_5">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row gy-4 tabs">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_field_6">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_value_6">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row gy-4 tabs">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_field_7">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_value_7">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row gy-4 tabs">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_field_8" >
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_value_8" >
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="accordion-item">
+                                                                <a href="#" class="accordion-head collapsed" data-toggle="collapse" data-target="#accordion-item-3">
+                                                                    <h6 class="title">Extra FieldZ</h6>          <span class="accordion-icon"></span>
+                                                                </a>
+                                                                <div class="accordion-body collapse" id="accordion-item-3" data-parent="#accordion" >
+                                                                    <div class="accordion-inner">
+                                                                        <p>
+                                                                    <div class="row gy-4 tabs">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_field_9">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_value_9">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row gy-4 tabs">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_field_10">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_value_10">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row gy-4 tabs">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_field_11">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_value_11">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row gy-4 tabs">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_field_12" >
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_value_12" >
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="accordion-item">
+                                                                <a href="#" class="accordion-head collapsed" data-toggle="collapse" data-target="#accordion-item-4">
+                                                                    <h6 class="title">Date FieldZ</h6>          <span class="accordion-icon"></span>
+                                                                </a>
+                                                                <div class="accordion-body collapse" id="accordion-item-4" data-parent="#accordion" >
+                                                                    <div class="accordion-inner">
+                                                                        <p>
+                                                                    <div class="row gy-4 tabs">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_date_1">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control date-picker" id="tb_item_edit_date_value_1">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row gy-4 tabs">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_date_2">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control date-picker" id="tb_item_edit_date_value_2">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row gy-4 tabs">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control form-control-lg" id="tb_item_edit_date_3">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label" for="#"></label>
+                                                                                <input  type="text" class="form-control date-picker" id="tb_item_edit_date_value_3">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_html">
+                                                        <div class="row gy-4 tabs">
+                                                            <div class="col-md-6">
+                                                                <div id='div_html'>
+                                                                    <textarea id="tb_item_edit_html" name="tb_item_edit_html" rows="4" cols="50">
+                                                                    </textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_setting">
+                                                        <div class="row gy-4 tabs">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="tb_item_edit_order">Order</label>
+                                                                    <input  type="number" class="form-control form-control-lg" id="tb_item_edit_order" value="" placeholder="1">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="tb_item_edit_title_url">Title URL:</label>
+                                                                    <label class="form-label" id="tb_item_edit_title_url"></label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <br/>
+                                                                    <div class="g">
+                                                                        <div id='div_check'>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br/>
+                                                                    <div class="g">
+                                                                        <label class="form-label" for="sl_item_edit_order">Sort Type</label>
+                                                                        <br/>
+                                                                        <select name="sl_item_edit_sort_type" id="sl_item_edit_sort_type">
+                                                                            <option value="title">Title</option>
+                                                                            <option value="order">Order</option>
+                                                                            <option value="date">Date</option>
+                                                                     </select>
+                                                                    </div>
+                                                                    <br/>
+                                                                    <div class="g">
+                                                                        <label class="form-label" for="sl_item_edit_order">Sort Order</label>
+                                                                        <br/>
+                                                                        <select name="sl_item_edit_sort_order" id="sl_item_edit_sort_order">
+                                                                            <option value="asc">Ascending</option>
+                                                                            <option value="desc">Descending</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- .tab-pane -->
+                                                    <!--bottom start--!>
+                                                        <div class="row gy-4 tabs">
+                                                        <div class="col-md-6">
+                                                        <div class="form-group">
+                                                        <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
+                                                        <li>
+                                                        <a  href="javascript:void(0);" href="#" class="btn btn-lg btn-primary " id='btn_item_submit'>Save</a>
+                                                        </li>
+                                                        <li>
+                                                        <a  id='btn_cancel' href="#" data-dismiss="modal" class="link link-light">Cancel</a>
+                                                        </li>
+                                                        <li>
+                                                                            <div id="div_validation_message">
+                                                                            <div class="alert alert-success alert-icon">
+                                                                            <em class="icon ni ni-check-circle"></em> <strong>
+                                                                            Your item </strong>has been saved successfully.
+                                                                            </div>
+                                                                            </div>
+                                                                            </li>
+                                                        </ul>
+                                                        </div>
+                                                        </div>
+                                                        </div>
+                                                        <!--bottom end--!>
+                                                            </div>
+                                                            <!-- .tab-content -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- .nk-block -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content @e -->
+                <!-- footer @s -->
+                <div class="nk-footer">
+                    <%- include ('_footer') %>
+                </div>
+                <!-- footer @e -->
+            </div>
+            <!-- wrap @e -->
+        </div>
+        <!-- main @e -->
+        <!-- app-root @e -->
+        <!-- modal_start -->
+        <!-- modal_end -->
+    </body>
+    <%- include ('_footer_file') %>
+    <script src="/js/biz_scriptz/review.js"></script>
+    <script>
+        $(document).ready(function() {
+            get_bind_biz_item();
+                });
+    </script>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+<head>
+       <%- include ('_header') %>
+</head>
+    <body class="nk-body bg-lighter npc-default pg-auth dark-mode">
+    <div class="nk-app-root">
+        <!-- main @s -->
+        <div class="nk-main ">
+            <!-- wrap @s -->
+            <div class="nk-wrap nk-wrap-nosidebar">
+                <!-- content @s -->
+                <div class="nk-content ">
+                    <div class="nk-block nk-block-middle nk-auth-body wide-xs">
+                        <div class="brand-logo pb-4 text-center">
+                            <a href="/" class="logo-link">
+                                    <img class="logo-light logo-img logo-img-lg" src="<%=helper.cms.photo_obj.mid_url%>" alt="logo">
+                            </a>
+                        </div>
+                        <div class="card card-bordered">
+                            <div class="card-inner card-inner-lg">
+                                <div class="nk-block-head">
+                                    <div class="nk-block-head-content">
+                                        <h4 class="nk-block-title">Register</h4>
+                                        <div class="nk-block-des">
+                                            <p>Create New <%=helper.cms.title%> Account</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                       <form action='#' method="post" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label class="form-label" for="name">First Name</label>
+                                        <div class="form-control-wrap">
+                                            <input type="text" class="form-control form-control-lg" id="tb_item_edit_first_name" placeholder="Enter your first name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="name">Last Name</label>
+                                        <div class="form-control-wrap">
+                                            <input type="text" class="form-control form-control-lg" id="tb_item_edit_last_name" placeholder="Enter your last name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="name">Email</label>
+                                        <div class="form-control-wrap">
+                                            <input type="text" class="form-control form-control-lg" id="tb_item_edit_email" placeholder="Enter your email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="password">Passcode</label>
+                                        <div class="form-control-wrap">
+                                       <a href="#" class="form-icon form-icon-right passcode-switch" data-target="tb_item_edit_password">
+                                                    <em class="passcode-icon icon-show icon ni ni-eye"></em>
+                                                    <em class="passcode-icon icon-hide icon ni ni-eye-off"></em>
+                                                </a>
+                                                <input  type="password" class="form-control form-control-lg"   id='tb_item_edit_password'  value='<%= helper.user.password %>'placeholder="Enter your passcode">
+       </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-control-xs custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox">
+                                            <label class="custom-control-label" for="checkbox">I agree to <a href="#">Privacy Policy</a> &amp; <a href="#"> Terms.</a></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button id='btn_register' class="btn btn-lg btn-primary btn-block">Register</button>
+                                    </div>
+                                </form>
+                                <div class="form-note-s2 text-center pt-4"> Already have an account? <a href="/"><strong>Sign in instead</strong></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nk-footer nk-auth-footer-full">
+                        <div class="container wide-lg">
+                            <div class="row g-3">
+                                <div class="col-lg-6 order-lg-last">
+                                    <ul class="nav nav-sm justify-content-center justify-content-lg-end">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Terms & Condition</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Privacy Policy</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Help</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="nk-block-content text-center text-lg-start">
+   <p class="text-soft">&copy; 2023 <a style='color:white' target='_blank' href='#'/>BiZ9 Framework</a>. All Rights Reserved. Application Version: <%=helper.app_version%></p>
+                                 </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- wrap @e -->
+            </div>
+            <!-- content @e -->
+        </div>
+        <!-- main @e -->
+    </div>
+    <!-- app-root @e -->
+    <!-- JavaScript -->
+    <!-- select region modal -->
+    <%- include ('_footer_file') %>
+        <script>
+            $( document ).ready(function() {
+                $('#btn_register').click(function(event){
+                    event.preventDefault();
+                    first_name=$('#tb_item_edit_first_name').val();
+                    last_name=$('#tb_item_edit_last_name').val();
+                    email=$('#tb_item_edit_email').val();
+                    password=$('#tb_item_edit_password').val();
+                    if(!validate_email(email)){
+                        Swal.fire("Error","Please enter a valide email address","error");
+                    }else if(!password){
+                        Swal.fire("Error","Password Required","error");
+                    }else{
+                        $.ajax({
+                            type: "POST",
+                            url: "/user/add",
+                            enctype: 'multipart/form-data',
+                            data: {first_name:first_name,last_name:last_name,email:email,password:password},
+                            success: function(data){
+                                if(data.helper.validation_message){
+                                    Swal.fire("Error",data.helper.validation_message,"error");
+                                    return false;
+                                }else{
+                                    window.location='/';
+                                }
+                            }
+                        });
+                        return false;
+                    }
+                });
+            });
+        </script>
+</html>

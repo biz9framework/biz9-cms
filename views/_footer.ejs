@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="nk-footer-wrap">
+        <div class="nk-footer-copyright">&copy; 2023 BiZ9-CMS Version <span id='biz_sp_biz9_framework_version'> </span>. App Version: <%=helper.app_version%>. All Rights Reserved. App ID: <%=helper.app_title_id%>.
+
+        </div>
+        <div class="nk-footer-links">
+            <ul class="nav nav-sm">
+                <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="/js/libs/jquerymin.js"></script>
+<script>
+    $(document).ready(function() {
+get_cms();
+function get_cms(){
+ $.ajax({
+        type: "GET",
+        url: "/get_cms/",
+        enctype: 'multipart/form-data',
+        data: {},
+        success: function(data){
+                $("#img_cms_logo").attr('src',data.helper.cms.photo_obj.thumb_url);
+                $("#sp_item_cms_title").html(data.helper.cms.title);
+                $("#biz_sp_biz9_framework_version").html(data.helper.biz9_framework_version);
+        }
+    });
+}
+
+        });
+</script>
+
+

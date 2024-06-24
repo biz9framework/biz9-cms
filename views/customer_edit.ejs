@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+    <head>
+        <%- include ('_header') %>
+    </head>
+    <body class="nk-body bg-lighter npc-default pg-auth dark-mode">
+        <div class="nk-app-root">
+            <!-- main @s -->
+            <div class="nk-main ">
+                <%- include ('_header_nav') %>
+                <!-- content @s -->
+                <div class="nk-content">
+                    <div class="container-fluid">
+                        <div class="nk-content-inner">
+                            <div class="nk-content-body">
+                                <div class="nk-block-head nk-block-head-sm">
+                                    <div class="nk-block-head-sub">
+                                        <a class="back-to" href="<%=helper.back_url%>">
+                                            <em class="icon ni ni-arrow-left"></em><span>Back</span>
+                                        </a>
+                                    </div>
+                                    <div class="nk-block-between">
+                                        <div class="nk-block-head-content">
+                                            <h3 class="nk-block-title page-title" id='h_item_edit_title'><%=helper.item.email%></h3>
+                                            <div class="nk-block-des text-soft">
+                                                <p></p>
+                                            </div>
+                                        </div><!-- .nk-block-head-content -->
+                                    </div><!-- .nk-block-between -->
+                                </div>
+                                <!-- .nk-block-head -->
+                                <!-- .nk-block -->
+                                <div class="nk-block nk-block-lg">
+                                    <div class="card card-preview">
+                                        <div class="card-inner">
+                                            <div class="preview-block">
+                                                <ul id='ul_nav_list' class="nk-nav nav nav-tabs"  id='div_tab_content'>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" data-toggle="tab" href="#tab_title">Profile</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-toggle="tab" href="#tab_photo">Photo</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-toggle="tab" href="#tab_setting">Setting</a>
+                                                    </li>
+                                                </ul>
+                                                <!-- .tab-content -->
+                                                <div class="tab-content">
+
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_account">
+                                                        <div class="row gy-4 tabs">
+                                                            <div class="col-md-6">
+                                                                <div class="card card-bordered">
+                                                                    <div class="card-inner">
+                                                                        <div class="card-head">
+                                                                            <h5 class="card-title">Your Account</h5>
+                                                                        </div>
+                                                                        <form action="#" class="gy-3">
+
+                                                                            <div class="col-lg-5">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-label" for="site-name">Close Account</label>
+                                                                                    <span class="form-note">Your profile, photos, orders, comments, and everything else you've added will be permanently deleted. You won't be able to retrieve anything you've added.
+                                                                                        You'll no longer be able to use this account.</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row g-3">
+                                                                                <div class="col-lg-7 offset-lg-5">
+                                                                                    <div class="form-group mt-2">
+                                                                                        <button type="button"  id='btn_item_remove_submit' class="btn btn-lg btn-primary">Delete Your Account?</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- .tab-pane -->
+
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane active" id="tab_title">
+
+                                                        <div class="card-inner">
+                                                            <form action="#">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="tb_item_edit_title">First Name</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input  type="text" class="form-control form-control-lg" id="tb_item_edit_first_name" value="" placeholder="">
+                                                                        <input  type="hidden" class="form-control form-control-lg" id="tb_item_tbl_id" value="<%=helper.item.tbl_id%>">
+                                                                        <input  type="hidden" class="form-control form-control-lg" id="tb_item_data_type" value="<%=helper.item.data_type%>">
+                                                                        <input  type="hidden" class="form-control form-control-lg" id="tb_item_photofilename" value="<%=helper.item.tbl_id%>">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="tb_item_edit_category">Last Name</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input class="form-control" id="tb_item_edit_last_name"  value="" >
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="tb_item_edit_category">Company</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <input class="form-control" id="tb_item_edit_company"  value="" >
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="tb_item_stock">E-Mail</label>
+                                                                    <input  type="text" class="form-control form-control-lg" id="tb_item_edit_email" value="" placeholder="">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="tb_item_stock">City</label>
+                                                                    <input  type="text" class="form-control form-control-lg" id="tb_item_edit_city" value="" placeholder="">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="tb_item_edit_title">State</label><br/>
+                                                                    <div class="form-control-wrap">
+                                                                        <%- include ('_state_list') %>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="tb_item_edit_title">Country</label><br/>
+                                                                    <div class="form-control-wrap">
+                                                                        <%- include ('_country_list') %>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_retail">
+                                                    </div>
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_file">
+                                                    </div><!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_photo">
+                                                        <div class="row gy-4 tabs">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <%- include ('_biz_tab_photo') %>
+                                                                </div>
+                                                            </div>
+                                                            <div  id='ul_save_btns' class="col-12">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_value">
+                                                    </div>
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_big">
+                                                    </div>
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_html">
+                                                    </div>
+                                                    <!-- .tab-pane -->
+                                                    <!-- .tab-pane -->
+                                                    <div class="tab-pane" id="tab_setting">
+                                                        <div class="row gy-4 tabs">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="tb_item_edit_password">Password</label>
+                                                                    <input type='password' class="form-control" id="tb_item_edit_password"  value="" >
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <br/>
+                                                                    <div class="g">
+                                                                        <%if(helper.user.data_type=='user_biz'){%>
+                                                                        <div id='div_check'>
+                                                                        </div>
+                                                                        <%}else{ %>
+                                                                        <div style='visibility: hidden' id='div_check'>
+                                                                        </div>
+                                                                        <%}%>
+                                                                    </div>
+                                                                    <br/>
+                                                                    <br/>
+                                                                    <div class="g">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- .tab-pane -->
+                                                    <!--bottom start--!>
+                                                        <div class="row gy-4 tabs">
+                                                        <div class="col-md-6">
+                                                        <div class="form-group">
+                                                        <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
+                                                        <li>
+                                                        <a  href="javascript:void(0);" href="#" class="btn btn-lg btn-primary " id='btn_item_submit'>Save</a>
+                                                        </li>
+                                                        <li>
+                                                        <a  id='btn_cancel' href="#" data-dismiss="modal" class="link link-light">Cancel</a>
+                                                        </li>
+                                                        <li>
+                                                        <div id="div_validation_message">
+                                                        <div class="alert alert-success alert-icon">
+                                                        <em class="icon ni ni-check-circle"></em> <strong>
+                                                        Your item </strong>has been saved successfully.
+                                                        </div>
+                                                        </div>
+                                                        </li>
+
+
+                                                        </ul>
+                                                        </div>
+                                                        </div>
+                                                        </div>
+                                                        <!--bottom end--!>
+                                                            </div>
+                                                            <!-- .tab-content -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- .nk-block -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content @e -->
+                <!-- footer @s -->
+                <div class="nk-footer">
+                    <%- include ('_footer') %>
+                </div>
+                <!-- footer @e -->
+            </div>
+            <!-- wrap @e -->
+        </div>
+        <!-- main @e -->
+        <!-- app-root @e -->
+        <!-- modal_start -->
+        <!-- modal_end -->
+    </body>
+    <%- include ('_footer_file') %>
+    <script src="/js/biz_scriptz/customer.js"></script>
+    <script>
+        $(document).ready(function() {
+            get_bind_biz_item();
+        });
+
+    </script>
+</html>

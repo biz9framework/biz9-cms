@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+    <head>
+        <%- include ('_header') %>
+    </head>
+    <body class="nk-body bg-lighter npc-default pg-auth dark-mode">
+        <div class="nk-app-root">
+            <!-- main @s -->
+            <div class="nk-main ">
+                <%- include ('_header_nav') %>
+                <!-- content @s -->
+                <div class="nk-content">
+                    <div class="container-fluid">
+                        <div class="nk-content-inner">
+                            <div class="nk-content-body">
+                                <div class="nk-block-head nk-block-head-sm">
+                                    <div class="nk-block-head-sub">
+                                        <%for(a=0;a<helper.back_list.length;a++){%>
+                                        <%if(helper.back_list[a]){%>
+                                        <a class="back-to" href="<%=helper.back_list[a].url%>">
+                                            <em class="icon ni ni-arrow-left"></em><span><%=helper.back_list[a].title%></span>
+                                        </a>
+                                        <%}%>
+                                        <%}%>
+                                    </div>
+                                   <div class="nk-block-between">
+                                        <div class="nk-block-head-content">
+                                            <h3 class="nk-block-title page-title"><%=helper.list_title%></h3>
+                                            <div class="nk-block-des text-soft">
+                                                <p>You have <%=helper.item_list.length%> items.</p>
+                                            </div>
+                                        </div><!-- .nk-block-head-content -->
+                                        <div class="nk-block-head-content">
+                                            <ul class="nk-block-tools g-3">
+                                                <li class="nk-block-tools-opt">
+                                                    <%if(helper.show_add){ %>
+                                                    <button type="button" id='btn_item_add' class="btn btn-lg btn-primary"><em class="icon ni ni-plus"></em></button>
+                                                    <%} %>
+                                                </li>
+                                            </ul>
+                                        </div><!-- .nk-block-head-content -->
+                                    </div><!-- .nk-block-between -->
+                                </div><!-- .nk-block-head -->
+                                <!-- .nk-block -->
+                                <div class="nk-block nk-block-lg">
+                                    <table  id='tbl_list' class="datatable-init nowrap nk-tb-list is-separate" data-auto-responsive="false">
+                                        <thead>
+                                               <tr class="nk-tb-item nk-tb-head">
+                                                    <th class="nk-tb-col"><span>Title</span></th>
+                                                    <th class="nk-tb-col"><span>Category</span></th>
+                                                    <th class="nk-tb-col"><span>Order</span></th>
+                                                    <th class="nk-tb-col"><span>Options</span></th>
+                                                        </tr><!-- .nk-tb-item -->
+                                     </thead>
+                                        <tbody>
+                                            <%for(a=0;a<helper.item_list.length;a++){ %>
+                                            <tr class="nk-tb-item">
+                                                   <td class="nk-tb-col">
+                                                    <span class="tb-product"    style='text-align:center'>
+                                                    <a href="/item_map/sub_item_edit/<%=helper.item_map.tbl_id%>/<%=helper.item_list[a].tbl_id%>" class='link_item_edit'>
+                                                    <img src="<%=helper.item_list[a].photo_obj.thumb_url %>" alt="" class="biz_list_thumb"><br/>
+                                                    <span class="title"><%=helper.item_list[a].title %></span>
+                                                    </a>
+                                                    </span>
+
+                                                    </td>
+
+                                                                                                        <td class="nk-tb-col">
+                                                    <span class="tb-sub"><%=helper.item_list[a].category %></span>
+                                                    </td>
+<td class="nk-tb-col">
+                                                    <span class="tb-sub"><%=helper.item_list[a].order %></span>
+                                                    </td>
+
+
+
+                                                    <td class="nk-tb-col nk-tb-col-tools">
+                                                    <ul class="nk-tb-actions gx-1 my-n1">
+                                                    <li class="mr-n1">
+                                                    <div class="dropdown">
+                                                    <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                    <ul class="link-list-opt no-bdr">
+                                                        <li><a href="/item_map/sub_item/<%=helper.item_map.tbl_id%>/<%=helper.item_list[a].tbl_id%>"><em class="icon ni ni-template-fill"></em><span>Items</span></a></li>
+                                                    <li><a tbl_id='<%=helper.item_list[a].tbl_id%>' href="/item/item_photo_list/<%=helper.item_list[a].data_type%>/<%=helper.item_list[a].tbl_id%>"><em class="icon ni ni-img"></em><span>Photos</span></a></li>
+                                                    <li><a class='link_item_copy' item_map_tbl_id='<%=helper.item_map.tbl_id%>' data_type='<%=helper.item_list[a].data_type%>' tbl_id='<%=helper.item_list[a].tbl_id%>'> <em class="icon ni ni-copy"></em><span>Copy</span></a></li>
+                                                    <li><a class='link_item_delete' data_type='<%=helper.item_list[a].data_type%>' tbl_id='<%=helper.item_list[a].tbl_id%>' ><em class="icon ni ni-trash"></em><span>Remove</span></a></li>
+                                                    </ul>
+                                                    </div>
+                                                    </div>
+                                                    </li>
+                                                    </ul>
+                                                    </td>
+                                                    </tr><!-- .nk-tb-item -->
+                                                    <%}%>
+                                        </tbody>
+                                    </table><!-- .nk-tb-list -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content @e -->
+                <!-- footer @s -->
+                <div class="nk-footer">
+                    <%- include ('_footer') %>
+                </div>
+                <!-- footer @e -->
+            </div>
+            <!-- wrap @e -->
+        </div>
+        <!-- main @e -->
+        <!-- Modal Fom  9_modal_add-->
+        <div class="modal fade" tabindex="-1" id="modal_item_add">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id='lbl_item_edit_title'>Add</h5>
+                        <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                            <em class="icon ni ni-cross"></em>
+                        </a>
+                    </div>
+                    <div class="modal-body">
+                            <div class="form-group">
+                                <label class="form-label" for="full-name" >Title</label>
+                                <div class="form-control-wrap">
+                                    <input type="text" class="form-control" name="tb_item_add_title" id="tb_item_add_title" value=''>
+                                    <input type="hidden" class="form-control" name="tb_item_add_title" id="tb_item_add_title" value=''>
+                                    <input type="hidden" class="form-control" name="tb_item_list_count" id="tb_item_list_count" value='<%=helper.item_list.length%>'>
+                                    <input  type="hidden" class="form-control form-control-lg" id="tb_item_map_tbl_id"  value="<%=helper.item_map.tbl_id%>" >
+                                    <input  type="hidden" class="form-control form-control-lg" id="tb_item_map_title_url"  value="<%=helper.item_map.title_url%>" >
+                                    <input  type="hidden" class="form-control form-control-lg" id="tb_item_top_tbl_id" value="<%=helper.item_top.tbl_id%>">
+                                    <input  type="hidden" class="form-control form-control-lg" id="tb_item_top_data_type" value="<%=helper.item_top.data_type%>">
+                                    <input  type="hidden" class="form-control form-control-lg" id="tb_item_parent_tbl_id" value="<%=helper.item_parent.tbl_id%>">
+                                    <input  type="hidden" class="form-control form-control-lg" id="tb_item_parent_data_type" value="<%=helper.item_parent.data_type%>">
+                                    <input  type="hidden" class="form-control form-control-lg" id="tb_url"  value="<%=helper.url%>" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" id='btn_item_add_submit' class="btn btn-lg btn-primary"  data-dismiss="modal">Save</button>
+                            </div>
+                    </div>
+                    <div class="modal-footer bg-light">
+                        <span class="sub-text"><!--text--!></span>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        <!-- app-root @e -->
+                        <%- include ('_footer_file') %>
+                        <!-- JavaScript -->
+                        <script src="/js/biz_scriptz/item_map_sub_item.js"></script>
+                        <script>
+                            $(document).ready(function() {
+
+                            });
+                        </script>
+    </body>
+</html>

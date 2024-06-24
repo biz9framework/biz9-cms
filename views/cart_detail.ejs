@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+    <head>
+        <%- include ('_header') %>
+    </head>
+    <body class="nk-body bg-lighter npc-general has-sidebar ">
+        <div class="nk-app-root">
+            <!-- main @s -->
+            <div class="nk-main ">
+                <%- include ('_header_nav') %>
+                <div class="nk-content ">
+                    <div class="container-fluid">
+                        <div class="nk-content-inner">
+                            <div class="nk-content-body">
+                                <div class="nk-block-head">
+                                    <div class="nk-block-between g-3">
+                                        <div class="nk-block-head-content">
+                                            <h3 class="nk-block-title page-title">Customer <strong class="text-primary small">#<%=helper.customer_id%></strong></h3>
+                                            <div class="nk-block-des text-soft">
+                                                <ul class="list-inline">
+                                                    <li>Created On: <span class="text-base"><%=helper.full_date_create%></span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="nk-block-head-content">
+                                            <a href="/order/cartz" class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><em class="icon ni ni-arrow-left"></em><span>Back</span></a>
+                                            <a href="#" class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em class="icon ni ni-arrow-left"></em></a>
+                                        </div>
+                                    </div>
+                                </div><!-- .nk-block-head -->
+                                <div class="nk-block">
+                                    <div class="invoice">
+                                        <div class="invoice-action">
+                                            <a class="btn btn-icon btn-lg btn-white btn-dim btn-outline-primary" href="#" target="_blank"><em class="icon ni ni-printer-fill"></em></a>
+                                            <a class="btn btn-icon btn-lg btn-white btn-dim btn-outline-primary" href="#" target="_blank"><em class="icon ni ni-mail"></em></a>
+                                        </div><!-- .invoice-actions -->
+                                        <div class="invoice-wrap">
+                                            <div class="invoice-brand text-center">
+                                                <img id='img_item_logo' src="<%=helper.store_paper.photo_obj.thumb_url%>" srcset="<%=helper.store_paper.photo_obj.thumb_url%>" alt="">
+                                            </div>
+                                            <div class="invoice-head">
+                                                <div class="invoice-contact" >
+                                                    <div class="invoice-contact-info">
+                                                        <h4 class="title"><%=helper.store_info.business_name%></h4>
+                                                        <ul class="list-plain">
+                                                            <li><em class="icon ni ni-map-pin-fill"></em><span><%=helper.store_info.business_address1%><br><%=helper.store_info.business_address2%> <%=helper.store_info.business_state%> <%=helper.store_info.business_zip%></span></li> <li><em class="icon ni ni-call-fill"></em><span><%=helper.store_info.business_phone%></span></li>
+                                                            <li><em class="icon ni ni-mail"></em><span><%=helper.store_info.business_email%></span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="invoice-desc">
+                                                    <h3 class="title">Cart</h3>
+                                                    <ul class="list-plain">
+                                                        <li class="invoice-id"><span>Customer ID</span>:<span><%=helper.customer_id%></span></li>
+                                                        <li class="invoice-date"><span>Date</span>:<span><%=helper.full_date_create%></span></li>
+                                                    </ul>
+                                                </div>
+                                            </div><!-- .invoice-head -->
+                                            <div class="invoice-bills">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="w-150px">Title</th>
+                                                                <th class="w-60">Description</th>
+                                                                <th>Price</th>
+                                                                <th>Shipping</th>
+                                                                <th>Qty</th>
+                                                                <th>Amount</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <%for(a=0;a<helper.cart.item_list.length;a++){%>
+                                                            <tr>
+                                                                <td  style='text-align:center'>
+                                                                    <img src='<%=helper.cart.item_list[a].photo_obj.thumb_url%>' />
+                                                                    <%=helper.cart.item_list[a].title%>
+                                                                </td>
+                                                                <td><%=helper.cart.item_list[a].sub_note%></td>
+                                                                <td><%=helper.cart.item_list[a].sub_total%></td>
+                                                                <td><%=helper.cart.item_list[a].shipping_total%></td>
+                                                                <td><%=helper.cart.item_list[a].quantity%></td>
+                                                                <td><%=helper.cart.item_list[a].grand_total%></td>
+                                                            </tr>
+                                                            <%}%>
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <td colspan="2"></td>
+                                                                <td colspan="2">Subtotal</td>
+                                                                <td><%=helper.cart.price.sub_total%></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2"></td>
+                                                                <td colspan="2">Shipping Total</td>
+                                                                <td><%=helper.cart.price.shipping_total%></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2"></td>
+                                                                <td colspan="2">Grand Total</td>
+                                                                <td><%=helper.cart.price.grand_total%></td>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+
+                                                    <div>
+                                                    <h4>Notes</h4>
+                                                    <div class="nk-notes fs-12px"><%=helper.store_paper.cart_note%></div>
+                                                    <br/>
+                                                    <h4>Terms</h4>
+                                                    <div class="nk-notes fs-12px"><%=helper.store_paper.cart_term%></div>
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div><!-- .invoice-bills -->
+                                        </div><!-- .invoice-wrap -->
+                                    </div><!-- .invoice -->
+                                </div><!-- .nk-block -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content @e -->
+                <!-- footer @s -->
+                <div class="nk-footer">
+                    <%- include ('_footer') %>
+                </div>
+                <!-- footer @e -->
+            </div>
+            <!-- wrap @e -->
+        </div>
+        <!-- main @e -->
+        </div>
+        <%- include ('_footer_file') %>
+        <!-- JavaScript -->
+        <script>
+            $(document).ready(function() {
+                $("#tbl_list").on("click", ".link_item_edit", function(){
+                    customer_id = $(this).attr('customer_id');
+                    location.window = '/item_order/cart/detail/'+customer_id;
+                });
+
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,9 @@
+BIZ9_CMS_VERSION='7.3.8'
+APP_VERSION='1.0.2'
+PROJECT_ID='19';
+APP_TITLE='BiZ9-CMS';
+APP_TITLE_ID='cms19';
+SERVER_IP="0.00.000.000"
+SERVER_DIR="/home/admin/www/cms-_app_id_"
+SSH_KEY="other/aws/ec2_key/_app_id_.pem"
+GIT_REPO="${BIZ9_GIT_REPO}biz9-cms.git";

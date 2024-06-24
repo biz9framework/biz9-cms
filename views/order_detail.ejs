@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+    <head>
+        <%- include ('_header') %>
+    </head>
+    <body class="nk-body bg-lighter npc-default pg-auth dark-mode">
+        <div class="nk-app-root">
+            <!-- main @s -->
+            <div class="nk-main ">
+                <%- include ('_header_nav') %>
+                <div class="nk-content ">
+                    <div class="container-fluid">
+                        <div class="nk-content-inner">
+                            <div class="nk-content-body">
+                                <div class="nk-block-head">
+                                    <div class="nk-block-between g-3">
+                                        <div class="nk-block-head-content">
+                                            <h3 class="nk-block-title page-title">Customer <strong class="text-primary small">#<%=helper.order.customer_id%></strong></h3>
+                                            <div class="nk-block-des text-soft">
+                                                <ul class="list-inline">
+                                                    <li>Created At: <span class="text-base"><%=helper.order.date_obj.full_date_create%></span></li>
+                                                </ul>
+                                            </div>
+                                            <br/>
+                                            <div class="form-control-select">
+                                                <select class="form-control" id="sel_item_order_status">
+                                                    <option value="0">Open</option>
+                                                    <option value="1">Shipped</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="nk-block-head-content">
+                                            <a href="/order/orderz" class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><em class="icon ni ni-arrow-left"></em><span>Back</span></a>
+                                            <a href="#" class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em class="icon ni ni-arrow-left"></em></a>
+                                        </div>
+                                    </div>
+                                </div><!-- .nk-block-head -->
+                                <div class="nk-block">
+                                    <div class="invoice">
+                                        <div class="invoice-action">
+                                            <a class="btn btn-icon btn-lg btn-white btn-dim btn-outline-primary" href="#" target="_blank"><em class="icon ni ni-printer-fill"></em></a>
+                                            <a class="btn btn-icon btn-lg btn-white btn-dim btn-outline-primary" href="#" target="_blank"><em class="icon ni ni-mail"></em></a>
+                                        </div><!-- .invoice-actions -->
+                                        <div class="invoice-wrap">
+                                            <div class="invoice-brand text-center">
+                                                <img id='img_item_logo' src="<%=helper.store_paper.photo_obj.thumb_url%>" srcset="<%=helper.store_paper.photo_obj.thumb_url%>" alt="">
+                                            </div>
+                                            <div class="invoice-head">
+                                                <div class="invoice-contact" >
+                                                    <div class="invoice-contact-info">
+                                                        <h4 class="title"><%=helper.store_info.business_name%></h4>
+                                                        <ul class="list-plain">
+                                                            <li><em class="icon ni ni-map-pin-fill"></em><span><%=helper.store_info.business_address1%><br><%=helper.store_info.business_address2%> <%=helper.store_info.business_state%> <%=helper.store_info.business_zip%></span></li> <li><em class="icon ni ni-call-fill"></em><span><%=helper.store_info.business_phone%></span></li>
+                                                            <li><em class="icon ni ni-mail"></em><span><%=helper.store_info.business_email%></span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="invoice-desc">
+                                                    <h3 class="title">Invoice</h3>
+                                                    <ul class="list-plain">
+                                                        <li class="invoice-id"><span>Customer ID</span>:<span><%=helper.order.customer_id%></span></li>
+                                                        <li class="invoice-date"><span>Date</span>:<span> <%=helper.order.date_obj.full_date_create%></span></li>
+                                                        <li class="invoice-date"><span>Status</span>:<span> <%=helper.order.status%></span></li>
+
+                                                    </ul>
+                                                </div>
+                                            </div><!-- .invoice-head -->
+                                            <div class="invoice-bills">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="w-150px">Title</th>
+                                                                <th class="w-60">Description</th>
+                                                                <th>Price</th>
+                                                                <th>Shipping</th>
+                                                                <th>Qty</th>
+                                                                <th>Amount</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <%for(a=0;a<helper.order.order_item_list.length;a++){%>
+                                                            <tr>
+                                                                <td  style='text-align:center'>
+                                                                    <img src='<%=helper.order.order_item_list[a].photo_obj.thumb_url%>' />
+                                                                    <%=helper.order.order_item_list[a].title%>
+                                                                </td>
+                                                                <td><%=helper.order.order_item_list[a].option_note%></td>
+                                                                <td><%=helper.order.order_item_list[a].sub_total%></td>
+                                                                <td><%=helper.order.order_item_list[a].shipping_total%></td>
+                                                                <td><%=helper.order.order_item_list[a].quantity%></td>
+                                                                <td><%=helper.order.order_item_list[a].grand_total%></td>
+                                                            </tr>
+                                                            <%}%>
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <td colspan="2"></td>
+                                                                <td colspan="2">Subtotal</td>
+                                                                <td><%=helper.order.sub_total%></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2"></td>
+                                                                <td colspan="2">Shipping Total</td>
+                                                                <td><%=helper.order.shipping_total%></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2"></td>
+                                                                <td colspan="2">Grand Total</td>
+                                                                <td><%=helper.order.grand_total%></td>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                    <div>
+                                                        <h4>Notes</h4>
+                                                        <div class="nk-notes fs-12px"><%=helper.store_paper.invoice_note%></div>
+                                                        <br/>
+                                                        <h4>Terms</h4>
+                                                        <div class="nk-notes fs-12px"><%=helper.store_paper.invoice_term%></div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- .invoice-bills -->
+                                        </div><!-- .invoice-wrap -->
+                                    </div><!-- .invoice -->
+                                </div><!-- .nk-block -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content @e -->
+                <!-- footer @s -->
+                <div class="nk-footer">
+                    <%- include ('_footer') %>
+                </div>
+                <!-- footer @e -->
+            </div>
+            <!-- wrap @e -->
+        </div>
+        <!-- main @e -->
+        </div>
+        <%- include ('_footer_file') %>
+        <!-- JavaScript -->
+        <script>
+            $(document).ready(function() {
+
+                if(!'<%=helper.order.status_id%>'){
+                    $("#sel_item_order_status").val(0);
+                }else{
+                    $("#sel_item_order_status").val('<%=helper.order.status_id%>');
+                }
+                $("#tbl_list").on("click", ".link_item_edit", function(){
+                    customer_id = $(this).attr('customer_id');
+                    location.window = '/item_order/cart/detail/'+customer_id;
+                });
+                $('#sel_item_order_status').change(function(){
+                        tbl_id='<%=helper.order.tbl_id%>';
+                        data_type='<%=helper.order.data_type%>';
+                        status_id=$(this).val();
+                        $.ajax({
+                            type: "POST",
+                            url: "/cloud/crud/update/"+data_type+"/"+tbl_id,
+                            enctype: 'multipart/form-data',
+                            data: {
+                                status_id:status_id,
+                            },
+                            success: function(data){
+                                window.location.reload();
+                            }
+                        });
+                });
+            });
+        </script>
+    </body>
+</html>
